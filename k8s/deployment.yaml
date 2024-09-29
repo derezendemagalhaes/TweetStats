@@ -1,0 +1,46 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: tweet-stats-cronjob
+  labels:
+    tags.datadoghq.com/env: ${ENV}
+    tags.datadoghq.com/service: "tweet-stats"
+    tags.datadoghq.com/version: ${COMMIT_HASH}
+spec:
+  schedule: "0 8 * * 1"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: tweet-stats
+            tags.datadoghq.com/env: ${ENV}
+            tags.datadoghq.com/service: "tweet-stats"
+            tags.datadoghq.com/version: ${COMMIT_HASH}
+          annotations:
+            ad.datadoghq.com/tags: '{"ft.domain":"domain", "ft.productline":"cron", "ft.product":"tweet-stats", "team": "team"}'
+        spec:
+          containers:
+            - name: tweet-stats
+              image: ${REPOSITORY_URI}:${COMMIT_HASH}
+              resources:
+                limits:
+                  cpu: "1"
+                  memory: "300Mi"
+                  ephemeral-storage: "200Mi"
+                requests:
+                  cpu: "0.5"
+                  memory: "150Mi"
+                  ephemeral-storage: "100Mi"
+              env:
+                - name: AZURE_APPLICATION_SECRET_VALUE
+                  valueFrom:
+                    secretKeyRef:
+                      name: tweet-stats-snowflake-secret
+                      key: secret
+                - name: AZURE_APPLICATION_CLIENT_ID
+                  value: "${AZURE_APPLICATION_CLIENT_ID}" 
+                - name: AZURE_APPLICATION_OBJECT_ID
+                  value: "${AZURE_APPLICATION_OBJECT_ID}"
+          restartPolicy: Never
