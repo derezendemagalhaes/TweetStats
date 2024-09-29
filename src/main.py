@@ -19,7 +19,7 @@ def main(args):
               a default JSON file are processed.
 
     Side Effects:
-        - Fetches tweets and saves them to 'tweets_api.json' if `args.get_data` is provided.
+        - Gets tweets and saves them to 'tweets_api.json' if `args.get_data` is provided.
         - Reads from either 'tweets_api.json' or a default file based on the presence of `args.get_data`.
         - Processes and analyzes the tweet data.
         - Saves the analysis results to CSV files.
@@ -37,9 +37,11 @@ def main(args):
     general_results, user_results = analyze_data(processed_tweets)
 
     output_dir = 'data/processed'
+    logging.info("Starting to save analysis results.")
     general_results.to_csv(f'{output_dir}/general_analysis_results.csv', index=False)
+    logging.info(f"General results saved to {output_dir}/general_analysis_results.csv.")
     user_results.to_csv(f'{output_dir}/user_specific_analysis_results.csv')
-    logging.info("Analysis results have been successfully saved to data/processed.")
+    logging.info(f"User-specific results saved to {output_dir}/user_specific_analysis_results.csv.")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Tweet Stats")
