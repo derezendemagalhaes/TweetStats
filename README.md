@@ -33,14 +33,15 @@ TweetStats
 - Python 3.11
 - Docker (optional)
 - Kubernetes (optional for deployment)
-- Access to Twitter API credentials
+- Access to Twitter API credentials (optional for example)
 
 ## Setup
 
 1. **Clone the Repository:**
 
 ```bash
-git clone <repository-url> cd TweetStats
+git clone https://github.com/derezendemagalhaes/TweetStats.git
+cd TweetStats
 ```
 
 
