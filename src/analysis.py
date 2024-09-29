@@ -115,6 +115,6 @@ def analyze_data(processed_tweets: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataF
     })
 
     logging.info("Data analysis completed.")
-    logging.info(f"Most active day: {general_statistics['Most Active Day'][0]}")
+    logging.info(f"Most active day: {general_statistics['most_active_day'][0]}")
     logging.info(f"Total users analyzed: {len(user_details)}")
     return general_statistics, user_details
