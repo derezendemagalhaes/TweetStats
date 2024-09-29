@@ -1,0 +1,35 @@
+user_id,datetime,hashtags,is_retweet,followers_count,location,date,average_tweet_length,top_five_hashtags
+2269324464,Wed May 25 15:30:16 +0000 2022,['Flixbus'],False,4563,,2022-05-25,77.5,['Flixbus']
+90030190,Wed Jun 01 10:52:41 +0000 2022,['Flixbus'],False,490,The Other Side,2022-06-01,140.0,['Flixbus']
+473204944,Wed Jun 01 10:07:27 +0000 2022,"['Flixbus', 'Greyhound']",False,33338,"Leopoldshöhe, Deutschland",2022-06-01,95.0,"['Flixbus', 'Greyhound']"
+925799033486086144,Wed Jun 01 08:54:00 +0000 2022,"['UWCL', 'FLIXBUS']",False,624,"Waterloo, Belgique",2022-06-01,140.0,"['UWCL', 'FLIXBUS']"
+165643117,Tue May 31 23:34:57 +0000 2022,['flixbus'],False,671,Italia,2022-05-31,79.0,['flixbus']
+234177775,Tue May 31 19:41:08 +0000 2022,"['France', 'FlixBus', 'Looting', 'Loot', 'Steal', 'Stealing', 'Thieves', 'Thief', 'Bus', 'Travel']",True,323,"Sevilla, España",2022-05-31,140.0,"['France', 'FlixBus', 'Looting', 'Loot', 'Steal']"
+29412005,Tue May 31 07:21:01 +0000 2022,['flixbus'],False,436,Nederland,2022-05-31,135.0,['flixbus']
+4838520568,Tue May 31 06:05:10 +0000 2022,"['Flixbus', 'Paris', 'France']",False,1625,Everywhere,2022-05-31,120.0,"['Flixbus', 'Paris', 'France']"
+21217711,Tue May 31 04:16:09 +0000 2022,['flixbus'],False,1342,"Cambridge, MA",2022-05-31,140.0,['flixbus']
+1521169073136185346,Thu May 26 12:18:18 +0000 2022,['flixbus'],False,0,,2022-05-26,8.0,['flixbus']
+306689894,Thu May 26 08:50:13 +0000 2022,"['Flixbus', 'biglietti']",False,3358,,2022-05-26,105.0,"['Flixbus', 'biglietti']"
+1173214390423838720,Thu Jun 02 15:23:03 +0000 2022,"['ConcessioniBalneari', 'flixbus']",True,1174,"Vibo Valentia, Calabria",2022-06-02,139.0,"['ConcessioniBalneari', 'flixbus']"
+1256886684488212480,Sun May 29 19:55:50 +0000 2022,"['flixbus', 'flixtrain', 'flix', 'Verkehrswende', 'zugfahren']",True,83,,2022-05-29,95.0,"['flixbus', 'flixtrain', 'flix', 'Verkehrswende', 'zugfahren']"
+206177550,Sun May 29 19:03:13 +0000 2022,"['flixbus', 'flixtrain', 'flix', 'Verkehrswende', 'zugfahren']",True,209,"Dresden, Sachsen",2022-05-29,95.0,"['flixbus', 'flixtrain', 'flix', 'Verkehrswende', 'zugfahren']"
+844356110496813056,Sun May 29 19:02:09 +0000 2022,"['flixbus', 'flixtrain', 'flix', 'Verkehrswende', 'zugfahren']",False,4,"Sachsen, Deutschland",2022-05-29,75.0,"['flixbus', 'flixtrain', 'flix', 'Verkehrswende', 'zugfahren']"
+902489492258476033,Sun May 29 06:39:48 +0000 2022,['FlixBus'],True,440,worldwide,2022-05-29,140.0,['FlixBus']
+927356839,Sat May 28 10:36:42 +0000 2022,"['ConcessioniBalneari', 'flixbus']",False,314,Università di Pisa,2022-05-28,140.0,"['ConcessioniBalneari', 'flixbus']"
+1494267330167255045,Sat May 28 10:01:22 +0000 2022,"['Genova', 'Flixbus']",False,44,,2022-05-28,93.0,"['Genova', 'Flixbus']"
+2915964014,Sat May 28 08:30:20 +0000 2022,['FlixBus'],True,109,vancouver bc canada,2022-05-28,140.0,['FlixBus']
+1148476160,Sat May 28 08:01:13 +0000 2022,['Flixbus'],False,2515,"Genova,Liguria, Italia",2022-05-28,139.0,['Flixbus']
+48835437,Sat May 28 07:10:52 +0000 2022,"['Genova', 'Flixbus']",False,61185,"Genova, Italia",2022-05-28,113.0,"['Genova', 'Flixbus']"
+1128279366839017473,Mon May 30 20:11:00 +0000 2022,['flixbus'],False,111,,2022-05-30,48.0,['flixbus']
+3990076173,Mon May 30 16:08:15 +0000 2022,['flixbus'],False,295,,2022-05-30,45.0,['flixbus']
+39577893,Mon May 30 12:25:26 +0000 2022,"['FlixBus', 'Front', 'Charkow']",False,88,Chile,2022-05-30,140.0,"['FlixBus', 'Front', 'Charkow']"
+712887683689787392,Fri May 27 21:09:19 +0000 2022,['FlixBus'],True,92,"Delta, British Columbia",2022-05-27,140.0,['FlixBus']
+121200700,Fri May 27 20:59:53 +0000 2022,['FlixBus'],True,182,Canada,2022-05-27,140.0,['FlixBus']
+37489774,Fri May 27 20:44:54 +0000 2022,['FlixBus'],True,3674,"Studland, England",2022-05-27,140.0,['FlixBus']
+19314850,Fri May 27 20:43:37 +0000 2022,['FlixBus'],True,284287,Vancouver,2022-05-27,140.0,['FlixBus']
+1260597074036355072,Fri May 27 20:42:28 +0000 2022,['FlixBus'],True,5665,Planet Earth,2022-05-27,140.0,['FlixBus']
+340157714,Fri May 27 20:41:48 +0000 2022,['FlixBus'],False,10682,"Vancouver, Canada",2022-05-27,138.0,['FlixBus']
+1453776469679919105,Fri May 27 18:31:23 +0000 2022,['Flixbus'],False,503,Polska,2022-05-27,140.0,['Flixbus']
+1777798032,Fri May 27 13:06:37 +0000 2022,"['Flixbus', 'Greyhound']",True,3968,Albacete  Valencia  worldwide,2022-05-27,111.0,"['Flixbus', 'Greyhound']"
+3389315950,Fri May 27 13:01:22 +0000 2022,"['Flixbus', 'Greyhound']",False,26640,"Leopoldshöhe, Deutschland",2022-05-27,95.0,"['Flixbus', 'Greyhound']"
+1201446740492201984,Fri May 27 06:35:01 +0000 2022,"['Melnyk', 'FlixBus']",False,1482,,2022-05-27,140.0,"['Melnyk', 'FlixBus']"
