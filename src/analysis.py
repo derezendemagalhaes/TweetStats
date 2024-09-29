@@ -1,6 +1,10 @@
 import pandas as pd
+import logging
+
 from collections import Counter
 from typing import Tuple
+
+logging.basicConfig(level=logging.INFO)
 
 
 def find_most_active_day(tweets: pd.DataFrame) -> pd.Timestamp:
@@ -88,20 +92,29 @@ def analyze_data(processed_tweets: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataF
 
     Returns:
         Tuple[pd.DataFrame, pd.DataFrame]:
-        - The first DataFrame includes general statistics such as the most active day,
-          the total number of tweets with at least three hashtags, and the maximum number of tweets by a single user.
-        - The second DataFrame provides detailed information per user, including the most recent
-          number of followers, most recent location, average tweet length, and top five hashtags used.
+        - general_statistics: general statistics such as the most active day, the total number of tweets
+          with at least three hashtags, and the maximum number of tweets by a single user.
+        - user_details: detailed information per user, including the most recent number of followers, 
+          most recent location, average tweet length, and top five hashtags used.
     """
+    logging.info(f"Starting analysis of {len(processed_tweets)} processed tweets.")
+
+    if processed_tweets.empty:
+        logging.warning("No processed tweets available for analysis.")
+        return pd.DataFrame(), pd.DataFrame()
+
     processed_tweets['date'] = pd.to_datetime(processed_tweets['datetime'], format='%a %b %d %H:%M:%S %z %Y').dt.date
     most_active_day = find_most_active_day(processed_tweets)
     tweets_with_three_hashtags = count_tweets_with_minimum_hashtags(processed_tweets, min_hashtags=3)
     max_tweets_per_user = find_max_tweets_per_user(processed_tweets)
     user_details = prepare_user_details(processed_tweets)
     general_statistics = pd.DataFrame({
-        "Most Active Day": [most_active_day],
-        "Total Tweets with >=3 Hashtags": [tweets_with_three_hashtags],
-        "Max Tweets by Single User": [max_tweets_per_user]
+        "most_active_day": [most_active_day],
+        "total_tweets_with_more_than_3_hashtags": [tweets_with_three_hashtags],
+        "max_tweets_per_user": [max_tweets_per_user]
     })
 
+    logging.info("Data analysis completed.")
+    logging.info(f"Most active day: {general_statistics['Most Active Day'][0]}")
+    logging.info(f"Total users analyzed: {len(user_details)}")
     return general_statistics, user_details
