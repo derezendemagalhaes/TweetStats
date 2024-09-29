@@ -1,0 +1,86 @@
+stages:
+  - build_and_push
+  - deploy
+
+# -------------------------------------------------------
+# -- templates
+# -------------------------------------------------------
+.tag_template: &tag_definition
+  tags:
+    - kubernetes
+
+.dev_template: &dev_environment
+  image: dcr.tech/gitlab-runner-image:1.0.0
+  variables:
+    ENV: "dev"
+    REPOSITORY_URI: ci-dcr.tech/tweetstats/tweet-stats
+    NAMESPACE: tweetstats-dev
+    CONTEXT: ew1d1-dev
+    COMMIT_HASH: ${CI_COMMIT_SHORT_SHA}
+  environment:
+    name: dev
+
+.prod_template: &prod_environment
+  image: dcr.tech/gitlab-runner-image:1.0.0
+  variables:
+    ENV: "prod"
+    REPOSITORY_URI: dcr.tech/tweetstats/tweet-stats
+    NAMESPACE: tweetstats
+    CONTEXT: ew1p1
+    COMMIT_HASH: ${CI_COMMIT_SHORT_SHA}
+  environment:
+    name: prod
+
+# -------------------------------------------------------
+# -- build and push steps
+# -------------------------------------------------------
+docker-push-dev:
+  stage: build_and_push
+  <<: *dev_environment
+  <<: *tag_definition
+  image: dcr.tech/kaniko:latest
+  except:
+    - master
+  script:
+    - kaniko-build --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination ${REPOSITORY_URI}:${COMMIT_HASH}
+
+docker-push-prod:
+  stage: build_and_push
+  <<: *prod_environment
+  <<: *tag_definition
+  image: dcr.tech/kaniko:latest
+  only:
+    - master
+  script:
+    - kaniko-build --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination ${REPOSITORY_URI}:${COMMIT_HASH}
+
+# -------------------------------------------------------
+# -- deployment steps
+# -------------------------------------------------------
+deploy-dev:
+  stage: deploy
+  tags:
+    - tweetstats-dev-eu-west-1
+  <<: *dev_environment
+  except:
+    - master
+  when:
+    manual
+  script:
+    - kubectl config use-context $CONTEXT
+    - envsubst < k8s/deployment.yaml
+    - envsubst < k8s/deployment.yaml | kubectl apply -n $NAMESPACE -f -
+
+deploy-prod:
+  stage: deploy
+  tags:
+    - tweetstats-prod-eu-west-1
+  <<: *prod_environment
+  only:
+    - master
+  when:
+    manual
+  script:
+    - kubectl config use-context $CONTEXT
+    - envsubst < k8s/deployment.yaml
+    - envsubst < k8s/deployment.yaml | kubectl apply -n $NAMESPACE -f -
