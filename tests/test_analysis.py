@@ -16,7 +16,7 @@ def test_analyze_data():
     general_results, user_results = analyze_data(processed_tweets)
     
     assert isinstance(general_results, pd.DataFrame), "General results should be a DataFrame."
-    assert general_results["Most Active Day"].iloc[0] == pd.to_datetime("2021-09-29").date(), "Most active day calculation failed."
+    assert general_results["most_active_day"].iloc[0] == pd.to_datetime("2021-09-29").date(), "Most active day calculation failed."
     
     assert isinstance(user_results, pd.DataFrame), "User results should be a DataFrame."
     assert user_results["average_tweet_length"].iloc[0] == 15, "Average tweet length calculation failed."
