@@ -85,7 +85,15 @@ You can run the application in two modes:
     python src/main.py
     ```
 
-2. **Get data Mode (example):**
+2. **Default Mode (Makefile):**
+
+    Alternatively run this mode using the Makefile to both install the virtual environment and run the script:
+    ```bash
+    brew install make
+    make run
+    ```
+
+3. **Get data Mode (example):**
 
     Fetches recent tweets based on the specified number of days using the `--get-data` argument.
     ```bash
