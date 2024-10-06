@@ -28,7 +28,7 @@ def main(args):
     if args.get_data is not None:
         days = args.get_data
         get_tweets(days)
-        logging.info(f"Data for the last {days} days fetched and saved to 'tweets_api.json'.")
+        logging.info(f"Data for the last {days} fetched and saved to 'tweets_api.json'.")
         tweets = load_data('tweets_api.json')
     else:
         tweets = load_data('data/raw/tweets.json')
