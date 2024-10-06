@@ -28,7 +28,7 @@ def load_data(file_path: str) -> List[Dict[str, Any]]:
 
 
 def get_tweets(days=7, max_retries=3, delay=5):
-    """Retrieve tweets from the last days days containing the hashtag #FlixBus with retries."""
+    """Retrieve tweets from the last days containing the hashtag #FlixBus with retries."""
     load_dotenv()
     
     consumer_key = os.getenv('CONSUMER_KEY')
