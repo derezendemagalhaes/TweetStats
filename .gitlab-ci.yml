@@ -68,7 +68,6 @@ deploy-dev:
     manual
   script:
     - kubectl config use-context $CONTEXT
-    - envsubst < k8s/deployment.yaml
     - envsubst < k8s/deployment.yaml | kubectl apply -n $NAMESPACE -f -
 
 deploy-prod:
@@ -82,5 +81,4 @@ deploy-prod:
     manual
   script:
     - kubectl config use-context $CONTEXT
-    - envsubst < k8s/deployment.yaml
     - envsubst < k8s/deployment.yaml | kubectl apply -n $NAMESPACE -f -
